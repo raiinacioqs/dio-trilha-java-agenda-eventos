@@ -1,7 +1,7 @@
 public class Evento {
 
-    private String nome;
-    private String atracao;
+    private final String nome;
+    private final String atracao;
     
     public Evento(String nome, String atracao) {
         this.nome = nome;
