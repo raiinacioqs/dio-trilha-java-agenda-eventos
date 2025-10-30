@@ -18,7 +18,7 @@ public class AgendaEventos {
     }
 
     public void exibirAgenda(){
-        Map<LocalDate, Evento> eventosTreeMap = new TreeMap<>();
+        Map<LocalDate, Evento> eventosTreeMap = new TreeMap<>(eventosMap);
         System.out.println(eventosTreeMap);
     }
 
@@ -32,15 +32,19 @@ public class AgendaEventos {
       LocalDate dataAtual = LocalDate.now();
       LocalDate proximaData = null;
       Evento proximoEvento = null;
-      Map<LocalDate, Evento> eventosTreeMap = new TreeMap<>();
+      Map<LocalDate, Evento> eventosTreeMap = new TreeMap<>(eventosMap);
 
       for (Map.Entry<LocalDate, Evento> entry: eventosTreeMap.entrySet()){
         if (entry.getKey().isEqual(dataAtual) || entry.getKey().isAfter(dataAtual)){
-            proximaData = entry.getKey();
             proximoEvento = entry.getValue();
-            System.out.println("O próximo evento: " + entry.getValue() + "acontecerá na data: " + entry.getKey());
+            proximaData = entry.getKey();
+            System.out.println("O próximo evento: " + proximoEvento + " acontecerá na data: " + proximaData);
             break;
         }
+      }
+      
+      if (proximoEvento == null) {
+          System.out.println("Não há próximos eventos agendados.");
       }
     }
 }
