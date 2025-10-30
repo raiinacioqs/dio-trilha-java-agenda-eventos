@@ -30,8 +30,8 @@ public class AgendaEventos {
        */
 
       LocalDate dataAtual = LocalDate.now();
-      LocalDate proximaData = null;
       Evento proximoEvento = null;
+      LocalDate proximaData;
       Map<LocalDate, Evento> eventosTreeMap = new TreeMap<>(eventosMap);
 
       for (Map.Entry<LocalDate, Evento> entry: eventosTreeMap.entrySet()){
